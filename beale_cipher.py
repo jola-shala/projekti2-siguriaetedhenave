@@ -1,16 +1,16 @@
 def decrypt_beale(ciphertext, key_text):
 words = key_text.split()
-
 result = []
+
 for num in ciphertext.split():
   if num.isdigit():
     index = int(num) - 1
     if index < len(words):
       result.append(words[index][0])
     else:
-      result.append(num)
+      result.append("?")
       
-      return "".join(result)
+return "".join(result)
 
 if __name__ == "__main__":
   print("=== Beale Cipher ===")
@@ -18,7 +18,6 @@ if __name__ == "__main__":
   print("2. Decrypt")
 
 choice = input("Zgjedh opsionin (1/2): ")
-
 key_text = input("Shkruaj tekstin celes (key text): ")
 
 if choice == "1":
