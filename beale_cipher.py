@@ -1,14 +1,14 @@
 def decrypt_beale(ciphertext, key_text):
 words = key_text.split()
-result = []
 
+result = []
 for num in ciphertext.split():
   if num.isdigit():
     index = int(num) - 1
     if index < len(words):
       result.append(words[index][0])
     else:
-      result.append("?")
+      result.append(num)
       
 return "".join(result)
 
