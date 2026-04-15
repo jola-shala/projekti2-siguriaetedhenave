@@ -1,4 +1,4 @@
-# pjesa enkriptimit
+#ENKRIPTIMI 
 
 def decrypt_grille(cipher, grille, size):
     matrix = [list(cipher[i*size:(i+1)*size]) for i in range(size)]
