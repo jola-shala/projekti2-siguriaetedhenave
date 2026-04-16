@@ -10,7 +10,7 @@ for num in ciphertext.split():
     else:
       result.append(num)
       
-      return "".join(result)
+return "".join(result)
 
 if __name__ == "__main__":
   print("=== Beale Cipher ===")
@@ -18,7 +18,6 @@ if __name__ == "__main__":
   print("2. Decrypt")
 
 choice = input("Zgjedh opsionin (1/2): ")
-
 key_text = input("Shkruaj tekstin celes (key text): ")
 
 if choice == "1":
