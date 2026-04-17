@@ -34,7 +34,30 @@ def generate_grille(size):
 
     return grille
 
+def print_grille(grille):
+    print("\nGrille (1 = vrima):")
+    for row in grille:
+        print(" ".join(str(x) for x in row))
 
+def encrypt(message, grille):
+    size = len(grille)
+    grid = [["X" for _ in range(size)] for _ in range(size)]
+    index = 0
+
+    for _ in range(4):
+        for i in range(size):
+            for j in range(size):
+                if grille[i][j] == 1 and index < len(message):
+                    grid[i][j] = message[index]
+                    index += 1
+        grille = rotate(grille)
+
+        cipher_text = ""
+        for row in grid:
+            cipher_text += "".join(row)
+
+        print("\nEncrypted (string):", cipher_text)
+        return cipher_text
 
 
 
