@@ -32,3 +32,23 @@ elif choice == "2":
 
 else:
   print("Opsion i pavlefshem!")
+
+def encrypt_beale(plaintext, key_text):
+    words = key_text.split()
+    mapping = {}
+
+    for i, word in enumerate(words):
+        first_letter = word[0].lower()
+        if first_letter not in mapping:
+            mapping[first_letter] = []
+        mapping[first_letter].append(i + 1)
+
+    result = []
+    for char in plaintext.lower():
+        if char in mapping:
+            result.append(str(mapping[char][0]))
+        else:
+            result.append(char)
+
+    return " ".join(result)
+
