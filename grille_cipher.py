@@ -63,7 +63,7 @@ def encrypt(message, grille):
 def decrypt(cipher_text, grille):
     size = len(grille)
 
-    # kthe string në grid
+ 
     grid = []
     index = 0
     for i in range(size):
