@@ -1,16 +1,36 @@
-def decrypt_beale(ciphertext, key_text):
-words = key_text.split()
+def encrypt_beale(plaintext, key_text):
+    words = key_text.split()
+    mapping = {}
 
-result = []
-for num in ciphertext.split():
-  if num.isdigit():
-    index = int(num) - 1
-    if index < len(words):
-      result.append(words[index][0])
+    for i, word in enumerate(words):
+        first_letter = word[0].lower()
+        if first_letter not in mapping:
+            mapping[first_letter] = []
+        mapping[first_letter].append(i + 1)
+
+    result = []
+    for char in plaintext.lower():
+        if char in mapping:
+            result.append(str(mapping[char][0]))
+        else:
+            result.append(char)
+
+    return " ".join(result)
+
+
+def decrypt_beale(ciphertext, key_text):
+  words = key_text.split()
+
+  result = []
+  for num in ciphertext.split():
+    if num.isdigit():
+      index = int(num) - 1
+      if index < len(words):
+        result.append(words[index][0])
     else:
       result.append(num)
       
-return "".join(result)
+  return "".join(result)
 
 if __name__ == "__main__":
   print("=== Beale Cipher ===")
@@ -33,22 +53,4 @@ elif choice == "2":
 else:
   print("Opsion i pavlefshem!")
 
-def encrypt_beale(plaintext, key_text):
-    words = key_text.split()
-    mapping = {}
-
-    for i, word in enumerate(words):
-        first_letter = word[0].lower()
-        if first_letter not in mapping:
-            mapping[first_letter] = []
-        mapping[first_letter].append(i + 1)
-
-    result = []
-    for char in plaintext.lower():
-        if char in mapping:
-            result.append(str(mapping[char][0]))
-        else:
-            result.append(char)
-
-    return " ".join(result)
 
