@@ -34,7 +34,7 @@ def generate_grille(size):
 
     return grille
 
-<<<<<<< Updated upstream
+
 def print_grille(grille):
     print("\nGrille (1 = vrima):")
     for row in grille:
@@ -44,9 +44,22 @@ def encrypt(message, grille):
     size = len(grille)
     grid = [["X" for _ in range(size)] for _ in range(size)]
     index = 0
-=======
 
-# DECRYPT NGA STRING
+    for _ in range(4):
+        for i in range(size):
+            for j in range(size):
+                if grille[i][j] == 1 and index < len(message):
+                    grid[i][j] = message[index]
+                    index += 1
+        grille = rotate(grille)
+
+    cipher_text = ""
+    for row in grid:
+        cipher_text += "".join(row)
+
+    print("\nEncrypted (string): ", cipher_text)
+
+
 def decrypt(cipher_text, grille):
     size = len(grille)
 
@@ -67,17 +80,13 @@ def decrypt(cipher_text, grille):
             for j in range(size):
                 if grille[i][j] == 1:
                     message += grid[i][j] 
-                    grille = rotate(grille)
+        grille = rotate(grille)
 
-                    return message
+    return message
 
-
-# =========================
-# ▶️ MENU
-# =========================
 if __name__ == "__main__":
 
-    size = int(input("Jep madhësinë e matrices (p.sh. 4): "))
+    size = int(input("Jep madhesine e matrices (p.sh. 4): "))
 
     grille = generate_grille(size)
     print_grille(grille)
@@ -98,11 +107,11 @@ if __name__ == "__main__":
             print("Decrypted:", decrypt(cipher,grille))
 
 
-       elif choice == "3":
-        break
+        elif choice == "3":
+            break
     
-    else:
-        print("Gabim!")
+        else:
+            print("Gabim!")
         
 
 
