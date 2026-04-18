@@ -71,11 +71,38 @@ def decrypt(cipher_text, grille):
 
                     return message
 
-                    
+
+# =========================
+# ▶️ MENU
+# =========================
+if __name__ == "__main__":
+
+    size = int(input("Jep madhësinë e matrices (p.sh. 4): "))
+
+    grille = generate_grille(size)
+    print_grille(grille)
+ 
+    while True:
+        print("\n--- GRILLE CIPHER ---")
+        print("1.Encrypt")
+        print("2. Decrypt")
+        print("3. Exit")
+        choice = input("Zgjedh: ")
+
+        if choice == "1":
+            msg = input("Mesazhi: ")
+            cipher = encrypt(msg, grille)
+
+        elif choice == "2":
+            cipher = input("Shkruaj cipher text: ")
+            print("Decrypted:", decrypt(cipher,grille))
 
 
-
-
-
+       elif choice == "3":
+        break
+    
+    else:
+        print("Gabim!")
+        
 
 
