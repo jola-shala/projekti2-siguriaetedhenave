@@ -7,7 +7,7 @@ def rotate(grille):
 def generate_grille(size):
     grille = [[0]*size for _ in range(size)]
     positions = []
-    total_holes = (size * size) 
+    total_holes = size 
 
     while len(positions) < total_holes:
         i = random.randint(0, size-1)
@@ -42,6 +42,8 @@ def print_grille(grille):
 
 def encrypt(message, grille):
     size = len(grille)
+
+    temp_grille = [row[:] for row in grille]
     grid = [["X" for _ in range(size)] for _ in range(size)]
     index = 0
 
@@ -58,12 +60,12 @@ def encrypt(message, grille):
         cipher_text += "".join(row)
 
     print("\nEncrypted (string): ", cipher_text)
+    return cipher_text
 
 
 def decrypt(cipher_text, grille):
     size = len(grille)
 
- 
     grid = []
     index = 0
     for i in range(size):
@@ -86,7 +88,7 @@ def decrypt(cipher_text, grille):
 
 if __name__ == "__main__":
 
-    size = int(input("Jep madhesine e matrices (p.sh. 4): "))
+    size = int(input("Jep madhesine e matrices ((numer cift)p.sh. 4): "))
 
     grille = generate_grille(size)
     print_grille(grille)

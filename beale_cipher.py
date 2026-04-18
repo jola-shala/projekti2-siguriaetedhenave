@@ -1,3 +1,5 @@
+import random 
+
 def encrypt_beale(plaintext, key_text):
     words = key_text.split()
     mapping = {}
@@ -11,7 +13,7 @@ def encrypt_beale(plaintext, key_text):
     result = []
     for char in plaintext.lower():
         if char in mapping:
-            result.append(str(mapping[char][0]))
+            result.append(str(random.choice(mapping[char])))
         else:
             result.append(char)
 
@@ -20,13 +22,13 @@ def encrypt_beale(plaintext, key_text):
 
 def decrypt_beale(ciphertext, key_text):
   words = key_text.split()
-
   result = []
+
   for num in ciphertext.split():
     if num.isdigit():
       index = int(num) - 1
       if index < len(words):
-        result.append(words[index][0])
+        result.append(words[index][0].lower())
     else:
       result.append(num)
       
