@@ -26,7 +26,7 @@ if choice == "1":
   print("Encrypted:", encrypted)
 
 elif choice == "2":
-  ciphertext = input("Shkruaj tekstin per dekriptim:")
+  ciphertext = input("Shkruaje tekstin per dekriptim:")
   decrypted = decrypt_beale(ciphertext, key_text)
   print("Decrypted:", decrypted)
 
