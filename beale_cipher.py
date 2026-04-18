@@ -10,7 +10,7 @@ for num in ciphertext.split():
     else:
       result.append(num)
       
-      return "".join(result)
+return "".join(result)
 
 if __name__ == "__main__":
   print("=== Beale Cipher ===")
@@ -18,7 +18,6 @@ if __name__ == "__main__":
   print("2. Decrypt")
 
 choice = input("Zgjedh opsionin (1/2): ")
-
 key_text = input("Shkruaj tekstin celes (key text): ")
 
 if choice == "1":
@@ -33,3 +32,23 @@ elif choice == "2":
 
 else:
   print("Opsion i pavlefshem!")
+
+def encrypt_beale(plaintext, key_text):
+    words = key_text.split()
+    mapping = {}
+
+    for i, word in enumerate(words):
+        first_letter = word[0].lower()
+        if first_letter not in mapping:
+            mapping[first_letter] = []
+        mapping[first_letter].append(i + 1)
+
+    result = []
+    for char in plaintext.lower():
+        if char in mapping:
+            result.append(str(mapping[char][0]))
+        else:
+            result.append(char)
+
+    return " ".join(result)
+
