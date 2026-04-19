@@ -19,6 +19,25 @@ Beale Cipher është një metodë ku çdo shkronjë e mesazhit zëvendësohet me
     - çdo shkronjë zëvendësohet me numrin e parë të disponueshëm
 - Gjatë dekriptimit:
     - çdo numër kthehet në shkronjën e parë të fjalës përkatëse
+---
+### Shembull 
+- Zgjedh opsionin e deshiruar
+- === Beale Cipher ===
+    - 1. Encrypt
+    - 2. Decrypt
+    - Zgjedh opsionin (1/2): 1
+- Shkruaj tekstin celes (key text): This is your favorite album from Elita 5
+- Shkruaj tekstin per enkriptim: Pershendetje
+- Encrypted: p 7 r s h 7 n d 7 1 j 7
+Me pas dekriptimi 
+- === Beale Cipher ===
+    - 1. Encrypt
+    - 2. Decrypt
+    - Zgjedh opsionin (1/2): 2
+- Shkruaj tekstin celes (key text): This is your favorite album from Elita 5
+- Shkruaje tekstin per dekriptim:p 7 r s h 7 n d 7 1 j 7
+- Decrypted: pershendetje
+---
 ### Funksionet:
 - encrypt_beale(plaintext, key_text)
 - decrypt_beale(ciphertext, key_text)
@@ -33,6 +52,27 @@ Grille Cipher përdor një matricë (grid) me vrima (1 = vrima), e cila rrotullo
 - Mesazhi vendoset në vrima
 - Matrica rrotullohet 4 herë (0°, 90°, 180°, 270°)
 - Teksti final merret duke lexuar matricën
+---
+
+### Shembull
+- Jep madhesine e matrices ((numer cift)p.sh. 4) -> jep numrin e deshiruar 6 ne kete rast
+- Paraqiten opsionet
+-  --- GRILLE CIPHER ---
+    - 1.Encrypt
+    - 2. Decrypt
+    - 3. Exit
+    - Zgjedh: 1
+-  Mesazhi: This is my project    
+- Encrypted (string):  Tshis XXXXXrXXoXXmXXy X iXXXXpXjecXt
+Ne rastin tjeter 
+- --- GRILLE CIPHER ---
+    - 1.Encrypt
+    - 2. Decrypt
+    - 3. Exit
+    - Zgjedh: 2
+- Shkruaj cipher text: Tshis XXXXXrXXoXXmXXy X iXXXXpXjecXt
+- Decrypted: This is my projectXXXXXX
+---
 ### Funksionet:
 - generate_grille(size)
 - rotate(grille)
